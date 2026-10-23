@@ -1,0 +1,16 @@
+# Kitzbühel Lodge on Netlify: the page sits at the top of the project,
+# the AI assistant is the Edge Function in netlify/edge-functions/chat.js
+
+[build]
+  publish = "."
+  edge_functions = "netlify/edge-functions"
+
+[[edge_functions]]
+  path = "/api/chat"
+  function = "chat"
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
